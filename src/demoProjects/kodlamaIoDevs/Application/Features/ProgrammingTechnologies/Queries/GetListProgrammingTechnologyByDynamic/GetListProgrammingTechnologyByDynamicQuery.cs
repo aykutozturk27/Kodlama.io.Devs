@@ -28,7 +28,7 @@ namespace Application.Features.ProgrammingTechnologies.Queries.GetListProgrammin
 
             public async Task<ProgrammingTechnologyListModel> Handle(GetListProgrammingTechnologyByDynamicQuery request, CancellationToken cancellationToken)
             {
-                IPaginate<ProgrammingTechnology> programmingTechnologies = await _programmingTechnologyRepository.GetListByDynamicAsync(request.Dynamic,include:
+                IPaginate<ProgrammingTechnology> programmingTechnologies = await _programmingTechnologyRepository.GetListByDynamicAsync(request.Dynamic, include:
                                               m => m.Include(c => c.ProgrammingLanguage),
                                               index: request.PageRequest.Page,
                                               size: request.PageRequest.PageSize

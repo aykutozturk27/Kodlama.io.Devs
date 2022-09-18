@@ -6,11 +6,6 @@ using Core.Persistence.Paging;
 using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.ProgrammingTechnologies.Queries.GetListProgrammingTechnology
 {
@@ -31,13 +26,12 @@ namespace Application.Features.ProgrammingTechnologies.Queries.GetListProgrammin
 
             public async Task<ProgrammingTechnologyListModel> Handle(GetListProgrammingTechnologyQuery request, CancellationToken cancellationToken)
             {
-                //car models
                 IPaginate<ProgrammingTechnology> programmingTechnologies = await _programmingTechnologyRepository.GetListAsync(include:
                                               m => m.Include(c => c.ProgrammingLanguage),
                                               index: request.PageRequest.Page,
                                               size: request.PageRequest.PageSize
                                               );
-                //dataModel
+
                 ProgrammingTechnologyListModel mappedProgrammingTechnologies = _mapper.Map<ProgrammingTechnologyListModel>(programmingTechnologies);
                 return mappedProgrammingTechnologies;
             }

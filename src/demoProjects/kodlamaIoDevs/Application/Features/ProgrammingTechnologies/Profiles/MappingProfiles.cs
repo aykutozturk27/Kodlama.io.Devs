@@ -12,7 +12,7 @@ namespace Application.Features.ProgrammingTechnologies.Profiles
         public MappingProfiles()
         {
             CreateMap<ProgrammingTechnology, ProgrammingTechnologyListDto>()
-                .ForMember(c => c.ProgrammingLanguageName, 
+                .ForMember(c => c.ProgrammingLanguageName,
                 opt => opt.MapFrom(c => c.ProgrammingLanguage.Name))
                 .ReverseMap();
             CreateMap<IPaginate<ProgrammingTechnology>, ProgrammingTechnologyListModel>().ReverseMap();
