@@ -5,6 +5,5 @@ namespace Application.Services.Repositories
 {
     public interface IUserRepository : IAsyncRepository<User>, IRepository<User>
     {
-        Task<List<OperationClaim>> GetClaims(User user);
     }
 }

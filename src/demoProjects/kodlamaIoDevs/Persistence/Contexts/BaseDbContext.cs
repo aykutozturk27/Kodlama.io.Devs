@@ -21,11 +21,6 @@ namespace Persistence.Contexts
             Configuration = configuration;
         }
 
-        public BaseDbContext()
-        {
-
-        }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //base.OnConfiguring(optionsBuilder);
