@@ -21,6 +21,7 @@ namespace Persistence
             services.AddScoped<IOperationClaimRepository, OperationClaimRepository>();
             services.AddScoped<IUserOperationClaimRepository, UserOperationClaimRepository>();
             services.AddScoped<IUserSocialMediaRepository, UserSocialMediaRepository>();
+            services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 
             return services;
         }
